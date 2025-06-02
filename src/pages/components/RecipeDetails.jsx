@@ -18,8 +18,8 @@ const RecipeDetails = () => {
     )
   }
   return (
-    <div className='container mx-auto px-4 py-8'>
-      <div className='max-w-6xl mx-auto'>
+    <div className='container mx-auto px-4 py-10 md:py-20'>
+      <div className='w-full max-w-6xl mx-auto'>
         <div className='mb-4'>
           <Button
             asChild
