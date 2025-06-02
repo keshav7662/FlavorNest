@@ -6,7 +6,7 @@ _A delightful and modern recipe manager to create, explore, and favorite recipes
 
 ## 🚀 Live Demo
 
-[👉 Check it out here]([flavornest1.vercel.app](https://flavournest1.vercel.app/)) <!-- Replace with your deployed link -->
+[👉 Check it out here](https://flavournest1.vercel.app/)
 
 ---
 
