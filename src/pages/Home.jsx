@@ -39,12 +39,12 @@ const Home = () => {
     }
   ];
   return (
-    <section className='min-h-screen flex  justify-center py-20'>
+    <section className='min-h-screen flex  justify-center py-16'>
       <div className='container mx-auto px-4 text-center'>
         <h2 className='text-4xl md:text-7xl font-bold mb-6 tracking-tighter'>Discover & Create
           <span className='text-orange-600 block'>Amazing recipes</span>
         </h2>
-        <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+        <p className="text-md md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
           Your personal recipe vault where culinary creativity meets organization. Save, create, and share recipes
           that bring joy to your kitchen.
         </p>
@@ -56,7 +56,7 @@ const Home = () => {
             className="py-4 bg-orange-600 hover:bg-orange-700 text-white font-medium text-lg  rounded-full"
           >
             <Link to="/create" className="flex items-center space-x-2">
-              <Plus className="h-5 w-5" />
+              <Plus />
               <span>Create New Recipe</span>
             </Link>
           </Button>
@@ -68,7 +68,7 @@ const Home = () => {
             className="rounded-full py-4 border border-orange-600 text-orange-600 font-medium text-lg hover:bg-orange-50"
           >
             <Link to="/recipes" className="flex items-center space-x-2">
-              <BookOpen className="h-5 w-5" />
+              <BookOpen />
               <span>Browse All recipes</span>
             </Link>
           </Button>

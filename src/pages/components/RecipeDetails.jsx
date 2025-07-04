@@ -19,7 +19,6 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
-
 const RecipeDetails = () => {
   const { id } = useParams();
   const { recipes, bookmarkHandler, editRecipeHandler, deleteRecipeHandler } = useRecipes();
@@ -60,17 +59,14 @@ const RecipeDetails = () => {
     setEditFormModal(true);
   }
 
-
-
   const submitHandler = (data) => {
     editRecipeHandler(id, data);
     setEditFormModal(false);
     reset()
   }
 
-
   return (
-    <div className='container relative mx-auto px-4 py-8 '>
+    <div className='container relative mx-auto px-4 py-4 md:py-10'>
       <div className='w-full max-w-6xl mx-auto'>
         <div className='mb-4'>
           <Button
@@ -106,7 +102,7 @@ const RecipeDetails = () => {
                 <Badge variant="outline">{recipe.category}</Badge>
                 <Badge variant="outline" >{recipe.cuisine}</Badge>
               </div>
-              <div className='flex items-center gap-2  p-2 rounded-lg'>
+              <div className='flex items-center gap-2 p-2 rounded-lg'>
                 <FilePenLine onClick={handleEditForm} className="w-8 h-8 text-orange-500 bg-orange-100 rounded px-2 py-1 hover:text-orange-600 hover:scale-[1.2] transition-all duration-300 cursor-pointer" />
                 <Trash2 onClick={() => setDeleteModal(true)} className="w-8 h-8 text-red-500 bg-red-100 rounded px-2 py-1 hover:text-red-600 hover:scale-[1.2] transition-all duration-300 cursor-pointer" />
               </div>
@@ -161,19 +157,19 @@ const RecipeDetails = () => {
 
       {
         editFormModal && (
-          <div className='fixed inset-0 bg-black/50 z-50 flex items-center justify-center'>
-            <div className='w-full max-w-2xl bg-white rounded-xl relative p-6'>
+          <div className="fixed inset-0 bg-black/50 z-50 flex justify-center px-4 py-4 overflow-y-auto">
+            <div className="w-full max-w-2xl bg-white rounded-xl relative p-6 h-fit">
               <button
-                className='absolute top-3 right-3 text-gray-400 hover:text-gray-700 text-2xl font-bold z-10'
+                className="absolute top-3 right-3 text-gray-400 hover:text-gray-700 text-2xl font-bold z-10"
                 onClick={() => setEditFormModal(false)}
-                aria-label='Close modal'
+                aria-label="Close modal"
               >
                 &times;
               </button>
-              <form onSubmit={handleSubmit(submitHandler)}>
-                <h3 className='text-center font-black text-3xl text-orange-600 mb-4'>Edit Recipe</h3>
-                <div className='space-y-4'>
-                  <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
+              <form onSubmit={handleSubmit(submitHandler)} className="space-y-4">
+                <h3 className="text-center font-black text-2xl sm:text-3xl text-orange-600 mb-2">Edit Recipe</h3>
+                <div className="space-y-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                     <div>
                       <Label className="mb-2 text-sm">Recipe Name</Label>
                       <Input id="title" {...register("title", { required: 'Recipe title is required!' })} />
@@ -189,9 +185,16 @@ const RecipeDetails = () => {
                   </div>
                   <div>
                     <Label className="mb-2 text-sm">Recipe Description</Label>
-                    <Textarea id="desc" {...register('description', { required: 'description is required!', minLength: { value: 50, message: 'Description must be at least 50 characters long' } })} />
+                    <Textarea
+                      id="desc"
+                      {...register('description', {
+                        required: 'description is required!',
+                        minLength: { value: 50, message: 'Description must be at least 50 characters long' }
+                      })}
+                      className="min-h-[100px]"
+                    />
                   </div>
-                  <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <Label className="mb-2 text-sm">Category *</Label>
                       <Controller
@@ -238,34 +241,31 @@ const RecipeDetails = () => {
                       />
                     </div>
                   </div>
-                  <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                     <div>
-                      <Label className={'text-sm mb-2'}>cookingTime *</Label>
+                      <Label className="text-sm mb-2">Cooking Time *</Label>
                       <Input {...register('cookingTime', { required: 'cooking time is required!' })} />
                     </div>
                     <div>
-                      <Label className={'text-sm mb-2'}>Servings *</Label>
+                      <Label className="text-sm mb-2">Servings *</Label>
                       <Input {...register('servings', { required: 'servings is required!' })} />
                     </div>
                     <div>
-                      <Label className={'text-sm mb-2'}>Calories *</Label>
-                      <Input {...register('calories', { required: 'calories  is required!' })} />
+                      <Label className="text-sm mb-2">Calories *</Label>
+                      <Input {...register('calories', { required: 'calories is required!' })} />
                     </div>
                   </div>
-                  <div className='flex justify-end'>
-                    <div className='flex items-center gap-4'>
-                      <Button variant="outline" onClick={() => setEditFormModal(false)}>
-                        Cancel
-                      </Button>
-                      <Button className="bg-orange-600 hover:bg-orange-700 cursor-pointer">
-                        Update
-                      </Button>
-                    </div>
+
+                  <div className="flex justify-end gap-4">
+                    <Button variant="outline" onClick={() => setEditFormModal(false)}>Cancel</Button>
+                    <Button className="bg-orange-600 hover:bg-orange-700">Update</Button>
                   </div>
                 </div>
               </form>
             </div>
           </div>
+
         )
       }
 

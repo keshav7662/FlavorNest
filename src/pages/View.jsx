@@ -17,7 +17,7 @@ const View = () => {
   }
 
   return (
-    <div className='py-10 px-5 min-h-screen'>
+    <div className='py-4 md:py-10 px-5 min-h-screen'>
       <div className='container mx-auto space-y-4'>
         <div className='max-w-5xl mx-auto space-y-4'>
           <div className='mb-4 flex justify-between'>
