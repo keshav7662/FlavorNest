@@ -103,8 +103,8 @@ const RecipeDetails = () => {
                 <Badge variant="outline" >{recipe.cuisine}</Badge>
               </div>
               <div className='flex items-center gap-2 p-2 rounded-lg'>
-                <FilePenLine onClick={handleEditForm} className="w-8 h-8 text-orange-500 bg-orange-100 rounded px-2 py-1 hover:text-orange-600 hover:scale-[1.2] transition-all duration-300 cursor-pointer" />
-                <Trash2 onClick={() => setDeleteModal(true)} className="w-8 h-8 text-red-500 bg-red-100 rounded px-2 py-1 hover:text-red-600 hover:scale-[1.2] transition-all duration-300 cursor-pointer" />
+                <FilePenLine onClick={handleEditForm} className="w-10 h-10 text-orange-500 bg-orange-100 rounded px-2 py-1 hover:text-orange-600 hover:scale-[1.2] transition-all duration-300 cursor-pointer" />
+                <Trash2 onClick={() => setDeleteModal(true)} className="w-10 h-10 text-red-500 bg-red-100 rounded px-2 py-1 hover:text-red-600 hover:scale-[1.2] transition-all duration-300 cursor-pointer" />
               </div>
 
             </div>
