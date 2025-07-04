@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 
 const RecipeNotFound = ({ entityName, backTo }) => {
   return (
-    <div className='max-w-4xl mx-auto py-12 px-4'>
+    <div className='min-h-screen max-w-4xl mx-auto py-12 px-4'>
       <div className="flex flex-col space-y-8">
         <Button asChild variant="ghost" size="sm" className="w-fit hover:bg-gray-100 transition-colors">
           <Link to={`${backTo}`} className="flex items-center space-x-2 text-gray-600">

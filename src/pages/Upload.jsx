@@ -12,7 +12,7 @@ import toast from 'react-hot-toast';
 import { Controller, useForm } from 'react-hook-form'
 import { Button } from '@/components/ui/button'
 import { ArrowLeft, Clock, Save, User } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { nanoid } from 'nanoid'
 import { useRecipes } from '@/context/RecipeContext'
 import { Checkbox } from '@/components/ui/checkbox'
@@ -23,21 +23,22 @@ const Upload = () => {
   const { register, handleSubmit, control, formState: { errors }, reset } = useForm();
   const { recipes, setRecipes } = useRecipes();
   const [isVerified, setIsVerified] = useState(false);
+  let totalRecipesCreated = JSON.parse(localStorage.getItem('totalRecipesCreated')) || 0;
+  const navigate = useNavigate();
 
   const onSubmit = (values) => {
-
+    totalRecipesCreated++;
     const newRecipe = { ...values, id: nanoid(), isVerified }
     const updatedRecipes = [...recipes, newRecipe]
-
     localStorage.setItem('recipes', JSON.stringify(updatedRecipes))
+    localStorage.setItem('totalRecipesCreated', JSON.stringify(totalRecipesCreated))
     setRecipes(updatedRecipes)
-    
-    toast.success('Recipe Saved!')
 
+    toast.success('Recipe Saved!')
     reset({
       title: '',
       chefName: '',
-      recipieImage: '',
+      recipeImage: '',
       description: '',
       category: '',
       cuisine: '',
@@ -46,6 +47,7 @@ const Upload = () => {
       calories: ''
     });
     setIsVerified(false);
+    navigate('/recipes')
   }
 
   return (
@@ -231,8 +233,6 @@ const Upload = () => {
                 Verify Yourself
               </Label>
             </div>
-
-
 
             {/* Form Action Buttons */}
             <div className='flex justify-end'>

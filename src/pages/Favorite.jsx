@@ -55,35 +55,38 @@ const Favorite = () => {
 
 
   return (
-    <div className='py-10'>
+    <div className='py-10 px-4 min-h-screen'>
       <div className='max-w-5xl mx-auto space-y-6'>
-        <div className='grid md:grid-cols-3 lg:grid-cols-4 gap-6'>
+        <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
           {
             stats.map((stat, index) => (
               <RecipeStatsCard key={index} title={stat.title} value={stat.value} gradient={stat.gradient} color={stat.color} />
             ))
           }
         </div>
-        <div className='flex justify-end'>
-          <div className='flex gap-2 items-center'>
-            <Button
-              size="sm"
-              variant={viewMode == 'grid' ? "default" : "outline"}
-              onClick={() => setViewMode('grid')}
-              className={'cursor-pointer'}
-            >
-              <Grid3x3 />
-            </Button>
-            <Button
-              size="sm"
-              variant={viewMode == 'list' ? "default" : "outline"}
-              onClick={() => setViewMode('list')}
-              className={'cursor-pointer'}
-            >
-              <List />
-            </Button>
+        {
+          favoriteRecipes.length > 0 &&
+          <div className='flex justify-end'>
+            <div className='flex gap-2 items-center'>
+              <Button
+                size="sm"
+                variant={viewMode == 'grid' ? "default" : "outline"}
+                onClick={() => setViewMode('grid')}
+                className={'cursor-pointer'}
+              >
+                <Grid3x3 />
+              </Button>
+              <Button
+                size="sm"
+                variant={viewMode == 'list' ? "default" : "outline"}
+                onClick={() => setViewMode('list')}
+                className={'cursor-pointer'}
+              >
+                <List />
+              </Button>
+            </div>
           </div>
-        </div>
+        }
         {
           viewMode == 'grid' ? (
             <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>

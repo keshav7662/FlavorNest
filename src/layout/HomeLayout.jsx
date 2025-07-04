@@ -6,7 +6,7 @@ const HomeLayout = () => {
   return (
     <div className='flex flex-col'>
       <Navbar />
-      <main className='flex-1 min-h-screen bg-gradient-to-br from-orange-50 via-white to-red-50'>
+      <main className='flex-1 bg-gradient-to-br from-orange-50 via-white to-red-50'>
         <Outlet />
       </main>
     </div>

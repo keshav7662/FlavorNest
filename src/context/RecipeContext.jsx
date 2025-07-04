@@ -1,5 +1,6 @@
 import { createContext, useState, useContext } from 'react';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const RecipeContext = createContext();
 
@@ -9,6 +10,8 @@ export const RecipeProvider = ({ children }) => {
     const storedRecipe = localStorage.getItem('recipes')
     return storedRecipe ? JSON.parse(storedRecipe) : [];
   })
+  
+  const navigate = useNavigate();
 
   const favoriteRecipes = recipes.filter((recipe) => recipe.isFavorite);
 
@@ -39,8 +42,28 @@ export const RecipeProvider = ({ children }) => {
     localStorage.setItem('recipes', JSON.stringify(updatedRecipes));
   };
 
+  const editRecipeHandler = (id, data) => {
+    const updatedRecipes = recipes.map((recipe) =>
+      recipe.id === id
+        ? { ...recipe, ...data }
+        : recipe
+    );
+
+    setRecipes(updatedRecipes);
+    localStorage.setItem('recipes', JSON.stringify(updatedRecipes));
+    toast.success('Recipe updated successfully!')
+  }
+
+  const deleteRecipeHandler = (id) => {
+    const updatedRecipes = recipes.filter((recipe) => recipe.id !== id);
+    setRecipes(updatedRecipes);
+    localStorage.setItem('recipes', JSON.stringify(updatedRecipes));
+    toast.success('Recipe deleted successfully!');
+    navigate(updatedRecipes.length > 0 ? '/recipes' : '/');
+  }
+
   return (
-    <RecipeContext.Provider value={{ recipes, setRecipes, favouriteHandler, bookmarkHandler, favoriteRecipes }}>
+    <RecipeContext.Provider value={{ recipes, setRecipes, favouriteHandler, bookmarkHandler, editRecipeHandler, deleteRecipeHandler, favoriteRecipes }}>
       {children}
     </RecipeContext.Provider>
   )

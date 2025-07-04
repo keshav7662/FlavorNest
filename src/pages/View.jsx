@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import RecipeList from './components/RecipeList'
+import React, { useState } from 'react'
 import { useRecipes } from '@/context/RecipeContext'
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Grid3x3, List } from 'lucide-react';
 import RecipeNotFound from './components/RecipeNotFound';
+import RecipeList from './components/RecipeList'
 import RecipeGrid from './components/RecipeGrid';
 
 const View = () => {
@@ -17,7 +17,7 @@ const View = () => {
   }
 
   return (
-    <div className='py-10'>
+    <div className='py-10 px-5 min-h-screen'>
       <div className='container mx-auto space-y-4'>
         <div className='max-w-5xl mx-auto space-y-4'>
           <div className='mb-4 flex justify-between'>

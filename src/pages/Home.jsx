@@ -21,7 +21,7 @@ const Home = () => {
     },
     {
       title: "created This Month",
-      value: 6,
+      value: JSON.parse(localStorage.getItem('totalRecipesCreated')) || 0,
       gradient: "from-white to-white",
       color: 'text-green-600'
     },
@@ -39,9 +39,9 @@ const Home = () => {
     }
   ];
   return (
-    <section className='h-screen flex items-center justify-center'>
+    <section className='min-h-screen flex  justify-center py-20'>
       <div className='container mx-auto px-4 text-center'>
-        <h2 className='text-7xl font-bold mb-6'>Discover & Create
+        <h2 className='text-4xl md:text-7xl font-bold mb-6 tracking-tighter'>Discover & Create
           <span className='text-orange-600 block'>Amazing recipes</span>
         </h2>
         <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
@@ -49,7 +49,7 @@ const Home = () => {
           that bring joy to your kitchen.
         </p>
 
-        <div className='flex justify-center items-center gap-4 mb-8'>
+        <div className='flex flex-col md:flex-row justify-center items-center gap-4 mb-8'>
           <Button
             asChild
             size="lg"
@@ -73,7 +73,7 @@ const Home = () => {
             </Link>
           </Button>
         </div>
-        <div className='grid md:grid-cols-3 lg:grid-cols-4 gap-6 py-10 bg-white/50'>
+        <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 bg-white/50'>
           {
             stats.map((stat, index) => (
               <RecipeStatsCard key={index} title={stat.title} value={stat.value} gradient={stat.gradient} color={stat.color} />
@@ -81,7 +81,6 @@ const Home = () => {
           }
         </div>
       </div>
-
     </section>
   )
 }

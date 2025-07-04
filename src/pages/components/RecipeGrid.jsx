@@ -8,7 +8,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const RecipeGrid = ({ recipe }) => {
-  console.log(recipe)
   const { favouriteHandler, bookmarkHandler } = useRecipes();
   return (
     <Card className="shadow-sm rounded-md overflow-hidden pt-0 hover:shadow-xl transition-all duration-300 group cursor-pointer">
@@ -46,7 +45,7 @@ const RecipeGrid = ({ recipe }) => {
       </div>
       <CardContent className='space-y-4'>
         <h1 className='text-2xl font-semibold text-gray-900 hover:text-orange-600'>{recipe.title}</h1>
-        <p className='text-sm text-gray-600 line-clamp-2'>{recipe.description}</p>
+        <p className='text-sm text-gray-600 line-clamp-2 break-words'>{recipe.description}</p>
         <div className='flex gap-4 items-center'>
           <div className='flex items-center min-w-0 flex-1'>
             <Avatar className="h-6 w-6 mr-2 shrink-0">

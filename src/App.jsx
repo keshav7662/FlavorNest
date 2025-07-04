@@ -24,7 +24,7 @@ const App = () => {
           </Route>
         </Routes>
       </RecipeProvider>
-      <Toaster position="bottom-right" />
+      <Toaster position="top-right" />
     </Router>
   )
 }

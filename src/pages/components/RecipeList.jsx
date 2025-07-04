@@ -14,12 +14,12 @@ const RecipeList = ({ recipe }) => {
   return (
     <Card className="hover:shadow-lg transition-shadow">
       <CardContent >
-        <div className='flex gap-6'>
-          <div className='shrink-0 relative'>
+        <div className='flex flex-col md:flex-row gap-6'>
+          <div className='flex-shrink-0 relative'>
             <img src={recipe.recipeImage} alt="" className='w-30 h-20 object-cover rounded-lg' />
             <Badge className="absolute -top-2 -right-2 bg-gray-200 text-gray-900 text-xs rounded-full">{recipe.category}</Badge>
           </div>
-          <div className='flex-1'>
+          <div className='flex-1 min-w-0'>
             <div className='flex justify-between items-start mb-2'>
               <h4 className="text-lg font-semibold text-gray-900 hover:text-orange-600 transition-colors cursor-pointer">
                 {recipe.title}
@@ -47,7 +47,7 @@ const RecipeList = ({ recipe }) => {
 
               </div>
             </div>
-            <p className="text-gray-600 text-sm mb-3">{recipe.description}</p>
+            <p className="text-gray-600 text-sm mb-3 line-clamp-2 break-all">{recipe.description}</p>
 
             <div className='flex justify-between items-center'>
               <div className='flex items-center'>
