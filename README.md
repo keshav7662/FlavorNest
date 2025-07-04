@@ -14,37 +14,37 @@ _A delightful and modern recipe manager to create, explore, and favorite recipes
 
 ### 🏠 Landing Page
 
-![Landing Page](./src/assets/screenshots/landingpage.png)
+![Landing Page](./frontend/src/assets/screenshots/landingpage.png)
 
 ---
 
 ### 📝 Create Recipe Form
 
-![Create Recipe Form](./src/assets/screenshots/createform.png)
+![Create Recipe Form](./frontend/src/assets/screenshots/createform.png)
 
 ---
 
 ### 📋 Recipe List View
 
-![List View](./src/assets/screenshots/listview.png)
+![List View](./frontend/src/assets/screenshots/listview.png)
 
 ---
 
 ### 🧱 Recipe Grid View
 
-![Grid View](./src/assets/screenshots/gridview.png)
+![Grid View](./frontend/src/assets/screenshots/gridview.png)
 
 ---
 
 ### 🔍 Recipe Detail Page
 
-![Recipe Detail](./src/assets/screenshots/detailview.png)
+![Recipe Detail](./frontend/src/assets/screenshots/detailview.png)
 
 ---
 
 ### ❤️ Favorite Recipes Page
 
-![Favorites](./src/assets/screenshots/favorite.png)
+![Favorites](./frontend/src/assets/screenshots/favorite.png)
 
 ---
 
